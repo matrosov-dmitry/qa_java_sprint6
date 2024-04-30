@@ -23,6 +23,12 @@ public class TestFeline {
         int actualKittens = feline.getKittens();
         Assert.assertEquals("Количество котят неверное", expectedKittens, actualKittens);
     }
+    @Test
+    public void getNumberOfKittensTestParameter() {
+        int expectedKittens = 2;
+        int actualKittens = feline.getKittens(expectedKittens);
+        Assert.assertEquals("Количество котят неверное", expectedKittens, actualKittens);
+    }
 
     @Test
     public void eatMeatPositive() throws Exception {
