@@ -11,6 +11,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
+import static com.example.constant.AnimalFood.FAVORITE_FOODS;
+
 @RunWith(Parameterized.class)
 public class TestLion {
 
@@ -54,9 +56,8 @@ public class TestLion {
     @Test
     public void lionFeedsLikePredator() throws Exception {
         Lion lion = new Lion(sex, feline);
-        List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        Mockito.when(feline.getFood("Хищник")).thenReturn(expected);
-        Assert.assertEquals("Лев питается не как хищник", expected, lion.getFood());
+        Mockito.when(feline.getFood("Хищник")).thenReturn(FAVORITE_FOODS);
+        Assert.assertEquals("Лев питается не как хищник", FAVORITE_FOODS, lion.getFood());
     }
 
 

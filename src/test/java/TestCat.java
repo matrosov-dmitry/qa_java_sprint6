@@ -1,19 +1,23 @@
 import com.example.Cat;
 import com.example.Feline;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
+
+import static com.example.constant.AnimalFood.FAVORITE_FOODS;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestCat {
 
     @Mock
     private Feline feline;
+
+    @Before
 
     @Test
     public void getSoundTest() {
@@ -26,9 +30,8 @@ public class TestCat {
     @Test
     public void getFoodTest() throws Exception {
         Cat cat = new Cat(feline);
-        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        List<String> expectedMeal = List.of("Животные", "Птицы", "Рыба");
+        Mockito.when(feline.eatMeat()).thenReturn(FAVORITE_FOODS);
         List<String> actualMeal = cat.getFood();
-        Assert.assertEquals("Коты это не едят", expectedMeal, actualMeal);
+        Assert.assertEquals("Коты это не едят", FAVORITE_FOODS, actualMeal);
     }
 }

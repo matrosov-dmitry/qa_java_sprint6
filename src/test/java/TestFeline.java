@@ -3,6 +3,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.util.List;
 
+import static com.example.constant.AnimalFood.FAVORITE_FOODS;
+
 public class TestFeline {
 
     Feline feline = new Feline();
@@ -24,9 +26,8 @@ public class TestFeline {
 
     @Test
     public void eatMeatPositive() throws Exception {
-        List<String> expectedMeal = List.of("Животные", "Птицы", "Рыба");
         List<String> actualMeal = feline.eatMeat();
-        Assert.assertEquals("Коты это не едят", expectedMeal, actualMeal);
+        Assert.assertEquals("Коты это не едят", FAVORITE_FOODS, actualMeal);
     }
 
 }
